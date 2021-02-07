@@ -8,6 +8,11 @@
 }
 
 .menu li a{
+    background-color: hotpink;
+    padding: 10px;
+}
+
+.menu li a:hover{
     background-color: lightskyblue;
     padding: 10px;
 }
