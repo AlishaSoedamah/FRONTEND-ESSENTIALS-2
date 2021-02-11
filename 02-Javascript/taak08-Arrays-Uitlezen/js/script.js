@@ -10,6 +10,7 @@ topFilms = [
     "One Flew Over the Cuckoo's Nest",
     "Lawrence of Arabia"
 ];
+console.log(topFilms);
 
 document.querySelector(".film1-ranking").innerHTML = 1;
 document.querySelector(".film1-naam").innerHTML = topFilms[0];
@@ -32,4 +33,10 @@ document.querySelector(".film9-naam").innerHTML = topFilms[8];
 document.querySelector(".film10-ranking").innerHTML = 10;
 document.querySelector(".film10-naam").innerHTML = topFilms[9];
 
+function kiesFavorieteFilm() {
+    prompt("Nummer van je favoriete film");
+}
 
+console.log(kiesFavorieteFilm());
+
+// ik wil nie meer ben moe zzzzzzzzzzzzzz
