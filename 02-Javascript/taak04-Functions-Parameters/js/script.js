@@ -3,13 +3,12 @@
 getalEen = prompt("Vul hier het eerste getal in");
 getalTwee = prompt("Vul hier het tweede getal in");
 
-var getalEen =
 
-    function countThem(getalEen, getalTwee) {
-        var som = getalEen + getalTwee;
-        return som;
-    }
+function telOp(parEen, parTwee) {
 
-console.log(countThem(getalEen, getalTwee));
+    var som = parseInt(parEen) + parseInt(parTwee);
+    return som;
+}
 
-//brain is fried rn 
+console.log(telOp(getalEen, getalTwee));
+

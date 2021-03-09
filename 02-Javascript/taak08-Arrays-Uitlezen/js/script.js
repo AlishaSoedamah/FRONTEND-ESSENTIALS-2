@@ -34,9 +34,17 @@ document.querySelector(".film10-ranking").innerHTML = 10;
 document.querySelector(".film10-naam").innerHTML = topFilms[9];
 
 function kiesFavorieteFilm() {
-    prompt("Nummer van je favoriete film");
+    let waardeVanGebruiker = prompt("Nummer van je favoriete film");
+
+    if (waardeVanGebruiker >= 0) {
+        if (waardeVanGebruiker <= 10) {
+            //getal tussen 0 en 10. 
+            // console.log(waardeVanGebruiker);
+            console.log(topFilms[waardeVanGebruiker - 1]);
+        }
+
+    }
+
 }
 
-console.log(kiesFavorieteFilm());
 
-// ik wil nie meer ben moe zzzzzzzzzzzzzz
