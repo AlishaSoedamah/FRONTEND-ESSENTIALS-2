@@ -13,8 +13,7 @@ function showRandomNumber1() {
 
 getal1 = showRandomNumber1();
 
-//random numer 2
-//comeback to later
+
 function showRandomNumber2() {
     let randomGetal = makeRandomNumber()
     document.querySelector(".getal2").innerHTML = randomGetal;
@@ -23,28 +22,39 @@ function showRandomNumber2() {
 
 getal2 = showRandomNumber2();
 
-//true or false, change the backgroundcolor. How is the question...
 
 function geefAntwoord(antwoord) {
-    // getal 1 < getal 2 EN als het antwoord lager  is dan groen
-    if (getal1 < getal2 == true) {
-        document.querySelector("body").style.backgroundColor = 'Green';
+
+    if (getal1 < getal2 == true) { // 1ste getal is kleiner
+        if (antwoord == "lager") {
+            //antwoord is goed
+            document.querySelector("body").style.backgroundColor = 'Green';
+            score = score + 1;
+        }
+        else {
+            //antwoord is niet goed
+            document.querySelector("body").style.backgroundColor = 'Red';
+            score = score - 1;
+        }
     }
-    // getal 1 < getal 2 EN als het antwoord hoger  is dan rood
-    if (getal1 < getal2 == false) {
-        document.querySelector("body").style.backgroundColor = 'Red';
+
+    else { // 1ste getal is groter
+        if (antwoord == "hoger") {
+            //antwoord is goed
+            document.querySelector("body").style.backgroundColor = 'Green';
+            // getal 1 > getal 2 EN als het antwoord hoger is dan groen
+            score = score + 1;
+        }
+        // antwoord is niet goed
+        else {
+            document.querySelector("body").style.backgroundColor = 'Red';
+            // getal 1 > getal 2 EN als het antwoord fout is dan rood
+            score = score - 1;
+        }
     }
-    // getal 1 > getal 2 EN als het antwoord hoger  is dan groen
-    // getal 1 > getal 2 EN als het antwoord lager  is dan rood
 
-    console.log();
-
-
-    //if (geefAntwoord == true) {
-    //    document.querySelector("body").style.backgroundColor = 'Green';
-    //}
-    //else {
-    //    document.querySelector("body").style.backgroundColor = 'Red';
-    //}
+    document.querySelector(".score").innerHTML = score;
+    showRandomNumber1();
+    showRandomNumber2();
 }
 
