@@ -8,9 +8,10 @@ arrInputPosities = [];      //array van input posities
 arrCodewordPosities = [];   //array van codeword posities
 arroutputPosities = [];     //array van output posities
 
-//Zet een string om naar een array met posities
+//stringNaarPosities zet een string om naar een array met posities
 function stringNaarPosities(str) { //str = STUDENT
     outputArray = [];
+    //hier is een for loop die de posities van de letters omzet in nummers 
     for (let i = 0; i < str.length; i++) {
         for (let j = 0; j < strAlfabet.length; j++) {
             if (str[i].toUpperCase() == strAlfabet[j]) { //str[0], strAlfabet[18]
@@ -26,22 +27,26 @@ function stringNaarPosities(str) { //str = STUDENT
     return outputArray;
 }
 
-//Zet een array met posities om naar een string
-//let lengteArr = arr.lenth
+//Zet de array met posities om naar een string
+//var lengte van de array = arr
 function positiesNaarString(arr) {
     var outputString = "";
+
     //TODO: opdracht 1
-    //outputArray[18,19,20,3,4,13,19]
-    outputString["S", "T", "U"];
+    //outputArray[18,19,20,3,4,13,19] = arr = STUDENT
+    outputString[""];
     //hier ga ik posities weer terugzetten naar letters en ik zet dit in de variable uitputstring
     for (var i = 0; i < arr.length; i++) {
+        //als getal 0 kleiner is dan STUDENT keep looping 
         var item = arr[i];
         outputString += strAlfabet[item];
+        //ITEM = STUDENT en DAT ZIT NU IN DE OUTPUTSTRING 
     }
     return outputString;
+
 }
 
-//Geeft een array terug waarbij het codeword herhaald wordt totdat de lengte overeenkomt met het te versleutelen bericht
+//Geeft een array terug waarbij het codeword herhaald wordt tot dat de lengte overeenkomt met het te versleutelen bericht
 //Dus als het bericht STUDENT (7 letters) is en het codeword KLAS dan krijg je KLASKLA (7 letters) terug van deze functie.
 function vermenigvuldigCodeword(strInput, strCodeword) { //student,klas
     var outputString = "";
@@ -52,7 +57,7 @@ function vermenigvuldigCodeword(strInput, strCodeword) { //student,klas
     var intDiv = Math.floor(inputLength / codewordLength); //het aantal keer dat het codeword in zijn geheel in het bericht past
     var intMod = inputLength % codewordLength; //het aantal letters dat overblijft die nog moeten worden aangevuld
 
-    console.log(intDiv);
+    console.log(intDiv); //hier is het antwoord 1 omdat het codeword er 1x in past 
 
     //TODO: opdracht 2
     //maak twee losse for loops om een correcte string terug te geven
@@ -63,18 +68,21 @@ function vermenigvuldigCodeword(strInput, strCodeword) { //student,klas
         outputString += strCodeword;
         console.log(outputString);
     }
+    //klas
     for (var i = 0; i < intMod; i++) {
         outputString += strCodeword[i];
     }
+    //kla
     console.log("Codeword full: " + outputString);
     return outputString;
 }
 
 //functie die een een bericht versleuteld.
 function versleutel() {
+    //dit zie je op de pagina 
     strInput = document.querySelector("#input").value;
     strCodeword = document.querySelector("#codeword").value;
-
+    //dit zie je in de console 
     console.log("input: " + strInput);
     console.log("codeword: " + strCodeword);
 
@@ -87,7 +95,8 @@ function versleutel() {
     for (let i = 0; i < arrInputPosities.length; i++) {
         if (arrInputPosities[i] + arrCodewordPosities[i] > 25) {
             //i = 0 - > als 18 + 10 = 26
-            outputArray.push((arrInputPosities[i] + arrCodewordPosities[i]) - 25); //- > (18 + 10) 25 -> 18 - 25 = 3 (D)
+            outputArray.push((arrInputPosities[i] + arrCodewordPosities[i]) - 25);
+            //als arrInputPosities[i] + arrCodewordPosities[i] GROTER is dan 25 DAN -25
         }
         else {
             outputArray.push(arrInputPosities[i] + arrCodewordPosities[i]);
@@ -112,13 +121,16 @@ function ontsleutel() {
 
     outputArray = [];
     for (var i = 0; i < arroutputPosities.length; i++) {
+        // als arroutputPosities.length groter is keep looping 
         if (arroutputPosities[i] - arrCodewordPosities[i] < 0) {
             outputArray.push((arroutputPosities[i] - arrCodewordPosities[i]) + 25);
+            // als arroutputPosities - arrCodewordPosities KLEINER is dan 0  dan + 25
         }
         else {
             outputArray.push(arroutputPosities[i] - arrCodewordPosities[i]);
         }
     }
     document.querySelector('#output').value = positiesNaarString(outputArray);
+    // laat de output zien op de pagina 
 
 }
